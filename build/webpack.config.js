@@ -26,6 +26,11 @@ const config = {
     filename: __DEV__ ? '[name].js' : '[name].[chunkhash].js',
     publicPath: project.publicPath,
   },
+  devServer: {
+    proxy: {
+      "/api*": "http://localhost:4000/"
+    }
+  },
   resolve: {
     modules: [
       inProject(project.srcDir),

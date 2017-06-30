@@ -1,0 +1,1 @@
+export const LOADED_FROM_SERVER = 'LOADED_FROM_SERVER'

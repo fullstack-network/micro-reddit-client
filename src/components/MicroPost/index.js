@@ -11,6 +11,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    upvote: (id) => { actions.upvote(dispatch, id) },
+    downvote: (id) => { actions.downvote(dispatch, id) },
   };
 }
 

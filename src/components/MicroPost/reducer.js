@@ -1,5 +1,6 @@
 const initialState = []
-import { LOADED_FROM_SERVER } from "./actionTypes";
+
+import { LOADED_FROM_SERVER, UPVOTE, DOWNVOTE} from "./actionTypes";
 
 export default function (state = initialState, action) {
 
@@ -7,5 +8,22 @@ export default function (state = initialState, action) {
     return action.posts;
   }
 
-  return initialState;
+  if (action.type === UPVOTE || action.type === DOWNVOTE) {
+    const posts = state.map((post, index) => {
+
+      if (post.id === action.id) {
+        if (action.type === UPVOTE) {
+          post.votes += 1;
+        } else {
+          post.votes -= 1;
+        }
+      }
+
+      return post;
+    });
+
+    return posts;
+  }
+
+  return state;
 }

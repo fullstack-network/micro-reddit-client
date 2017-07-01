@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 class MicroPost extends Component {
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.votes !== nextProps.votes;
+  }
+
   render() {
     return (
       <li className="list-group-item">
